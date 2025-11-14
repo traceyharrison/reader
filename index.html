@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>PDF Reader App</title>
+    <meta name="description" content="Modern PDF Reader with page-turning animations and mobile support">
+    <meta name="theme-color" content="#0f0f0f">
+    
+    <!-- PWA Meta Tags -->
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left">
+                <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+                <h1 class="app-title">📚 PDF Reader</h1>
+            </div>
+            <div class="header-center">
+                <span class="document-title" id="documentTitle">No document loaded</span>
+            </div>
+            <div class="header-right">
+                <button class="header-btn" id="fileInput-trigger" title="Open PDF">
+                    📁 Open PDF
+                </button>
+                <input type="file" id="fileInput" accept=".pdf" style="display: none;">
+            </div>
+        </header>
+
+        <!-- Main Content Area -->
+        <div class="main-content">
+            <!-- Sidebar -->
+            <aside class="sidebar" id="sidebar">
+                <div class="sidebar-header">
+                    <h3>📋 Contents</h3>
+                    <button class="sidebar-toggle" id="sidebarToggle">←</button>
+                </div>
+                
+                <!-- Page Navigation -->
+                <div class="page-navigation">
+                    <div class="nav-section">
+                        <h4>📄 Pages</h4>
+                        <div class="page-controls">
+                            <button class="nav-btn" id="prevPage" disabled>◀ Prev</button>
+                            <span class="page-info">
+                                <input type="number" id="currentPageInput" value="1" min="1" max="1">
+                                <span> / </span>
+                                <span id="totalPages">1</span>
+                            </span>
+                            <button class="nav-btn" id="nextPage" disabled>Next ▶</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Zoom Controls -->
+                <div class="zoom-controls">
+                    <h4>🔍 Zoom</h4>
+                    <div class="zoom-buttons">
+                        <button class="zoom-btn" id="zoomOut">➖</button>
+                        <span class="zoom-level" id="zoomLevel">100%</span>
+                        <button class="zoom-btn" id="zoomIn">➕</button>
+                    </div>
+                    <button class="zoom-btn fit-width" id="fitWidth">Fit Width</button>
+                    <button class="zoom-btn fit-page" id="fitPage">Fit Page</button>
+                </div>
+
+                <!-- Table of Contents -->
+                <div class="toc-section">
+                    <h4>📑 Table of Contents</h4>
+                    <div class="toc-list" id="tocList">
+                        <p class="no-toc">No outline available</p>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- PDF Viewer -->
+            <main class="pdf-viewer">
+                <div class="viewer-container" id="viewerContainer">
+                    <div class="welcome-screen" id="welcomeScreen">
+                        <div class="welcome-content">
+                            <div class="welcome-icon">📄</div>
+                            <h2>Welcome to PDF Reader</h2>
+                            <p>Click "Open PDF" to start reading your documents</p>
+                            <button class="welcome-btn" onclick="document.getElementById('fileInput').click()">
+                                📁 Choose PDF File
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Tap zones for navigation -->
+                    <div class="tap-zone tap-zone-top" id="tapZoneTop"></div>
+                    <div class="tap-zone tap-zone-left" id="tapZoneLeft"></div>
+                    <div class="tap-zone tap-zone-right" id="tapZoneRight"></div>
+                    
+                    <canvas id="pdfCanvas" style="display: none;"></canvas>
+                    <div class="page-flip-indicator" id="pageFlipIndicator"></div>
+                    
+                    <!-- Mobile Page Turn Button -->
+                    <div class="mobile-page-turn" id="mobilePageTurn" style="display: none;">
+                        <button class="page-turn-btn prev" id="mobilePrevBtn">
+                            <span class="arrow">‹</span>
+                            <span class="text">Previous</span>
+                        </button>
+                        <div class="page-info-container">
+                            <div class="page-info" id="mobilePageInfo">1 / 1</div>
+                            <div class="zoom-controls-mobile">
+                                <button class="zoom-btn-mobile" id="mobileZoomOut">🔍−</button>
+                                <span class="zoom-level-mobile" id="mobileZoomLevel">150%</span>
+                                <button class="zoom-btn-mobile" id="mobileZoomIn">🔍+</button>
+                            </div>
+                        </div>
+                        <button class="page-turn-btn next" id="mobileNextBtn">
+                            <span class="text">Next</span>
+                            <span class="arrow">›</span>
+                        </button>
+                    </div>
+                    
+                    <div class="loading-indicator" id="loadingIndicator" style="display: none;">
+                        <div class="spinner"></div>
+                        <p>Loading PDF...</p>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <span class="status-text" id="statusText">Ready</span>
+                <div class="footer-controls">
+                    <button class="footer-btn" id="downloadBtn" title="Download PDF" disabled>💾 Download</button>
+                    <button class="footer-btn" id="printBtn" title="Print PDF" disabled>🖨️ Print</button>
+                    <button class="footer-btn" id="fullscreenBtn" title="Fullscreen">⛶ Fullscreen</button>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
