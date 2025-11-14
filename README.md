@@ -1,27 +1,27 @@
-# 📚 Modern PDF Reader
+# Modern PDF Reader
 
 A sleek, mobile-friendly PDF reader with page-turning animations and a dark, modern design.
 
-## ✨ Features
+## Features
 
-### 📱 Mobile-First Design
+### Mobile-First Design
 - **Responsive Layout**: Optimized for all screen sizes
 - **Touch Gestures**: Swipe left/right to navigate pages
 - **Pinch to Zoom**: Natural zoom controls on mobile devices
 - **Touch-Friendly Controls**: Large buttons optimized for mobile interaction
 
-### 🎭 Page-Turning Animations
+### Page-Turning Animations
 - **Smooth Transitions**: Beautiful 3D flip animations when changing pages
 - **Direction-Aware**: Different animations for forward and backward navigation
 - **Performance Optimized**: Smooth animations even on mobile devices
 
-### 🌙 Dark & Modern UI
+### Dark & Modern UI
 - **Dark Theme**: Easy on the eyes with modern dark color scheme
 - **Gradient Accents**: Beautiful purple gradients for interactive elements
 - **Glassmorphism**: Subtle blur effects and transparency
 - **Clean Typography**: Segoe UI font stack for optimal readability
 
-### 🎮 Navigation & Controls
+### Navigation & Controls
 - **Multiple Navigation Options**:
   - Touch gestures (swipe left/right)
   - Keyboard shortcuts (arrow keys, space, +/-)
@@ -29,13 +29,13 @@ A sleek, mobile-friendly PDF reader with page-turning animations and a dark, mod
   - Page number input
   - Table of contents (when available)
 
-### 🔍 Zoom & Viewing Options
+### Zoom & Viewing Options
 - **Flexible Zoom**: Manual zoom (50% - 500%)
 - **Smart Fitting**: Fit to width or fit to page
 - **Pinch to Zoom**: Natural mobile zoom gestures
 - **High-Quality Rendering**: Sharp text and graphics at all zoom levels
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Quick Start
 1. Open `index.html` in a modern web browser
@@ -56,8 +56,6 @@ PDF Reader/
 └── README.md           # This file
 ```
 
-## 📋 Usage Instructions
-
 ### Desktop Controls
 - **Arrow Keys**: Navigate pages (←/→ or ↑/↓)
 - **Space**: Next page
@@ -74,29 +72,28 @@ PDF Reader/
 
 ### Features Overview
 
-#### 📄 Page Navigation
+#### Page Navigation
 - Navigate using buttons, keyboard, or gestures
 - Jump to specific pages using the page input
 - Visual feedback with page-turning animations
 
-#### 🔍 Zoom Controls
+#### Zoom Controls
 - **Zoom In/Out**: Fine-grained zoom control
 - **Fit to Width**: Automatically fit page width to screen
 - **Fit to Page**: Show entire page on screen
 - **Manual Zoom**: Type specific zoom percentage
 
-#### 📋 Table of Contents
+#### Table of Contents
 - Automatically loads PDF bookmarks/outline
 - Click any item to jump to that section
 - Hierarchical display for nested bookmarks
 
-#### 💾 Additional Features
+#### Additional Features
 - **Download**: Save the loaded PDF file
 - **Print**: Print the current document
 - **Fullscreen**: Immersive reading experience
 - **Drag & Drop**: Drop PDF files anywhere on the page
 
-## 🛠️ Technical Details
 
 ### Dependencies
 - **PDF.js**: Mozilla's PDF rendering library (loaded from CDN)
@@ -115,7 +112,7 @@ PDF Reader/
 - **Touch Optimization**: Responsive touch handling
 - **Animation Optimization**: Hardware-accelerated CSS animations
 
-## 🎨 Customization
+## Customization
 
 ### Color Scheme
 The app uses CSS custom properties for easy theming. Edit `css/styles.css`:
@@ -158,7 +155,7 @@ The app is PWA-ready. To enable full PWA features:
 2. Add service worker (`sw.js`) for offline functionality
 3. Add app icons in various sizes
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 ### Common Issues
 
@@ -177,11 +174,11 @@ The app is PWA-ready. To enable full PWA features:
 - Check if the browser supports touch events
 - Try refreshing the page
 
-## 📝 License
+## License
 
 This project is open source and available under the MIT License.
 
-## 🤝 Contributing
+## Contributing
 
 Feel free to submit issues, feature requests, or pull requests to improve the app!
 
